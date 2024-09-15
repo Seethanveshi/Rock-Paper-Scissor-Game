@@ -86,6 +86,12 @@ function updateScore(){
     val.innerHTML=`Wins:${Score.Win}  Loses:${Score.Lose}  Ties:${Score.Tie}`;
 }
 
+function resetScore(){
+    array=[];
+    localStorage.removeItem('Score');
+    localStorage.removeItem('array');
+}
+
 let stop=0;
 
 function review_result(){
