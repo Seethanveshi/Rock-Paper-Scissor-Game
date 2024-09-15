@@ -35,9 +35,12 @@
             Score.Lose=0;
             Score.Tie=0;
             updateScore();
-            localStorage.removeItem('Score')">
+            resetScore();">
             Reset Score
         </button>
+        <button class="review-button" onclick="
+            review_result()"
+        >Review</button>
     </div>
 
     <script src="RPR.js">
