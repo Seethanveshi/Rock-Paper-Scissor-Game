@@ -29,18 +29,19 @@
         <P class="Moves"></P>
         
         <p class="RPS-Score"></p>
-
-        <button class="reset-button" onclick="
-            Score.Win=0;
-            Score.Lose=0;
-            Score.Tie=0;
-            updateScore();
-            resetScore();">
-            Reset Score
-        </button>
-        <button class="review-button" onclick="
-            review_result()"
-        >Review</button>
+        <div>
+            <button class="reset-button" onclick="
+                Score.Win=0;
+                Score.Lose=0;
+                Score.Tie=0;
+                updateScore();
+                resetScore();">
+                Reset Score
+            </button>
+            <button class="review-button" onclick="
+                review_result()"
+            >Review</button>
+        </div>
     </div>
 
     <script src="RPR.js">
