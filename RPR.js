@@ -1,6 +1,9 @@
 let Score=JSON.parse(localStorage.getItem('Score'));
 let array=JSON.parse(localStorage.getItem('array')) || [];
 
+let userMove='Rock';
+let computerMove='Rock';
+
 if(Score == null){
     Score={
         Win:0,
@@ -9,12 +12,11 @@ if(Score == null){
     }
 }
 
-JSON.parse(localStorage.getItem('Score'));
 
 function Playgame(userMove){
     let number=Math.random();
-
-    let computerMove=0;
+    userMove=userMove;
+    computerMove=0;
 
     if(number>=0 && number<=1/3){
         computerMove='Rock';
@@ -71,12 +73,20 @@ function Playgame(userMove){
         Score.Tie+=1;
     }
 
+    array.push(
+        {
+            userMove:userMove,
+            computerMove:computerMove,
+            result:result
+        }
+    )
+
     localStorage.setItem('Score' , JSON.stringify(Score));
     localStorage.setItem('array' , JSON.stringify(array));
 
     updateScore();
     document.querySelector('.Result').innerHTML=`Result: You ${result}`;
-    document.querySelector('.Moves').innerHTML=`Your Move <img class="move-icon" src="icons/${userMove}-emoji.png"> - <img class="move-icon" src="icons/${computerMove}-emoji.png">  computerMove`;
+    document.querySelector('.Move').innerHTML=`Your Move <img class="move-icon" src="icons/${userMove}-emoji.png"> - <img class="move-icon" src="icons/${computerMove}-emoji.png">  computerMove`;
         
     
 }
@@ -110,10 +120,12 @@ function review_result(){
             let u_m=array[c].userMove;
             let c_m=array[c].computerMove;
             let r=array[c].result;
-        
+
             document.querySelector('.Result').innerHTML=`Result: You ${r}`;
             document.querySelector('.Move').innerHTML=`Your Move <img class="move-icon" src="icons/${u_m}-emoji.png"> - <img class="move-icon" src="icons/${c_m}-emoji.png">  computerMove`;
-            c+=1;              
+            c+=1;
+            
         } , 1000);
     }
 }
+
